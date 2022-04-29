@@ -1,0 +1,243 @@
+.example {
+  height: 48vh;
+  width: 40vw;
+  // background-color: #00A4E0;
+  background-color: rgb(243 222 143 / 97%);
+  box-shadow: 0 9px 10px rgb(24 21 17 / 75%);
+  margin: -8rem auto;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/***** Animation Keyframes *****/
+
+@keyframes lineDraw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes grow-bounce {
+  0% {
+    transform: scale(0);
+  }
+  1% {
+    opacty: 1;
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(.8);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes stretch-bounce {
+  1% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(1.3);
+  }
+  70% {
+   transform: scaleX(.8);
+  }
+  80% {
+    transform: scaleX(1.15);
+  }
+  90% {
+   transform: scaleX(.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes pedal-spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes sweep {
+  0% {
+    motion-offset: 0;
+    offset-distance: 0;
+  }
+
+  to {
+    motion-offset: 100%;
+    offset-distance: 100%;
+  }
+}
+
+@keyframes pedalRotate {
+  20% {
+    transform: rotate(-13deg);
+  }
+  40% {
+    transform: rotate(-100deg);
+  }
+  60% {
+    transform: rotate(-170deg);
+  }
+  80% {
+    transform: rotate(-260deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+/***** Bike Styles *****/
+
+#Frame {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: lineDraw 2s ease-out forwards;
+}
+
+#Center-Frame {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: lineDraw 1s .3s ease-out forwards;
+}
+
+#Front-Fork {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: lineDraw 1s .6s ease-out forwards;
+}
+
+.circle {
+  opacity: 0;
+  transform-origin: 50% 50%;
+}
+
+#Front-small-circle {
+  animation: grow-bounce 1s .6s ease-out forwards;
+}
+
+#Inner-Gear {
+  animation: grow-bounce 1s 1s ease-out forwards;
+}
+
+#Rear-Gear {
+  animation: grow-bounce 1s 1.3s ease-out forwards;
+}
+
+#Outer-Gear {
+  animation: grow-bounce 1s 1.6s ease-out forwards;
+}
+
+#Seat-Post,
+#Handle-bar-neck,
+#Handle-bars-white {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: lineDraw 1s 1.6s ease-out forwards;
+}
+
+
+#Handle-bars {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: lineDraw 1s 2s forwards;
+}
+
+#Seat {
+  transform-origin: 50% 50%;
+  opacity: 0;
+  animation: stretch-bounce 1.5s 1.6s forwards;
+}
+
+#White-Rear-Tire {
+  transform-origin: 50% 50%;
+  opacity: 0;
+  animation: grow-bounce 1.5s 2s forwards;
+}
+
+#White-Front-Tire {
+  transform-origin: 50% 50%;
+  opacity: 0;
+  animation: grow-bounce 1.5s 2.1s forwards;
+}
+
+#Black-Rear-Tire {
+  transform-origin: 50% 50%;
+  opacity: 0;
+  animation: grow-bounce 1.5s 2.2s forwards;
+}
+
+#Black-Front-Tire {
+  transform-origin: 50% 50%;
+  opacity: 0;
+  animation: grow-bounce 1.5s 2.3s forwards;
+}
+
+#Chain {
+  stroke-dasharray: 430;
+  stroke-dashoffset: 430;
+  animation: lineDraw 1s 2.3s forwards;
+}
+
+#Pedal-leg,
+#Pedal-leg-front {
+  stroke-dasharray: 70;
+  stroke-dashoffset: 70;
+  transform-origin: 5% 0%;
+}
+
+#Pedal-leg {
+  animation: lineDraw 1s 2.6s forwards, pedal-spin 1.5s 4s linear ;
+}
+
+#Pedal-leg-front {
+  animation: lineDraw 1s 2.6s forwards, pedal-spin 1.5s 4.75s linear ;
+}
+
+#Pedal,
+#PedalFront {
+  transform-origin: 50% 50%;
+  transform: translate(0,0);
+  opacity: 0;
+  motion-path: path("M285,257 C284,259 270,279 235,279 C200,279 172.476618,248.008972 171,217 C169.523382,185.991028 192,155 229,153 C266,151 299,185 297,215 C295,245 286,255 285,257 Z");
+}
+
+#Pedal {
+  animation: grow-bounce 1.5s 3s forwards, sweep 1.5s 4s linear infinite, pedalRotate 1.5s 4s linear forwards ;
+}
+
+#PedalFront {
+  animation: grow-bounce 1.5s 3s forwards, sweep 1.5s 4.75s linear infinite, pedalRotate 1.5s 4.75s linear forwards ;
+}
+
+
+@media screen and (max-width:500px) {
+  .example{
+    margin-top: 20rem;
+    height: 30vh;
+  }
+}
+
+
+
+
+
